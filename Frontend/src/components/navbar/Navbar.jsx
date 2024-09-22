@@ -1,18 +1,39 @@
-import React from "react";
+import React,{useEffect,useRef} from "react";
+import { gsap } from 'gsap';
 
 const Navbar = ()=>{
 
-    const LOGO = import.meta.env.VITE_LOGO_IMAGE_PATH;
+    const LOGO = import.meta.env.VITE_LOGO_IMAGE_PATH;  
+
+        const LogoRef = useRef(null);
+        const ProjectRef = useRef(null);
+        const AboutRef = useRef(null);
+        const ContactRef = useRef(null);
+    
+        useEffect(() => {
+            const tl = gsap.timeline();
+        
+            // Set initial states for the elements
+            gsap.set(LogoRef.current, { y: -100, opacity: 0 });
+            gsap.set(ProjectRef.current, { y: -100, opacity: 0 });
+            gsap.set(AboutRef.current, { y: -100, opacity: 0 });
+            gsap.set(ContactRef.current, { y: -100, opacity: 0 });
+        
+            tl.to(LogoRef.current, { y: 0, opacity: 1, duration: 1 }) 
+              .to(ProjectRef.current, { y: 0, opacity: 1, duration: 1}) 
+              .to(AboutRef.current, { y: 0, opacity: 1, duration: 1 }) 
+              .to(ContactRef.current, { y: 0, opacity: 1, duration: 1 });
+        }, []);
 
     return(
         <>
         <div className="bg-PCBG md:row-span-2 col-span-12 md:mx-3 sm:mr-0 mx-3 mt-3 rounded-xl  sm:row-span-1 sm:col-span-full items-center justify-center flex row-span-1 ">
             <div className="w-full flex items-center justify-between ">
-                <div className="h-52 w-52"><img className="cursor-pointer" src={LOGO} alt="" /></div>
+                <div className="h-52 w-52" ><img className="cursor-pointer" src={LOGO} alt="LOGO IMG" ref={LogoRef}/></div>
                 <div className=" flex m-6 items-center gap-16 text-lg">
-                    <div className="cursor-pointer">Projects</div>
-                    <div className="cursor-pointer">About</div>
-                    <div className="cursor-pointer">Contact</div>
+                    <div className="cursor-pointer" ref={ProjectRef}>Projects</div>
+                    <div className="cursor-pointer" ref={AboutRef}>About</div>
+                    <div className="cursor-pointer" ref={ContactRef}>Contact</div>
                 </div>
             </div>
         </div>
