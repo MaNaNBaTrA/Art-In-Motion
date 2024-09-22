@@ -8,6 +8,7 @@
       colors: {
         PBG: '#EAD7C3',
         PCBG:'#FBF6EF',
+        PCBG2:'#F1C393',
       },
       extend: {
         fontFamily:{

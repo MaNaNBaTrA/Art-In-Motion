@@ -13,9 +13,9 @@ dist-ssr
 *.local
 
 # Ignore node_modules in the Frontend directory
-Frontend/node_modules/
-# Ignore node_modules in the Backend directory
-Backend/node_modules/
+node_modules/
+.env
+
 
 # Editor directories and files
 .vscode/*
