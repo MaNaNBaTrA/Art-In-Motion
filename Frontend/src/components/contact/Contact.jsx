@@ -1,12 +1,27 @@
-import React from "react";
+import React,{useEffect,useRef} from "react";
+import gsap from "gsap";
 
 const Contact = () => {
+
+    const ContactRef = useRef(null)
+
+    useEffect(() => {
+        gsap.set(ContactRef.current, { x:1000, opacity: 0 });
+
+        gsap.to(ContactRef.current,{
+            x:0,
+            opacity:1,
+            delay:2.2,
+            duration:1,
+            ease: "power2.out",
+        });
+    }, []);
 
     const email = import.meta.env.VITE_EMAIL;
 
     return (
         <>
-            <div className="bg-PCBG2 md:row-span-12 mb-2 sm:order-2 sm:mb-0 md:-order-none md:col-span-4 rounded-xl  md:mr-0 flex sm:row-start-7 sm:row-end-11 sm:col-span-6 sm:mr-3">
+            <div ref={ContactRef} className="bg-PCBG2 md:row-span-12 md:mb-4 sm:order-2 sm:mb-0 md:-order-none md:col-span-4 rounded-xl  md:mr-0 flex sm:row-start-7 sm:row-end-11 sm:col-span-6 sm:mr-3">
                 <div className="w-full m-4 flex justify-between flex-col">
                     <div className="flex justify-between items-center text-wrap">
                         <div>Have some questions?</div>

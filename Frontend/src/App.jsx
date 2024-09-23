@@ -11,7 +11,7 @@
   function App() {
     return (
       <div className="font-sans cursor-default">
-        <div className="grid grid-cols-[repeat(12,minmax(0,1fr))] sm:gap-3 sm:grid-rows-[repeat(12,minmax(0,100px))] md:grid-rows-[repeat(12,minmax(0,40px))] grid-rows-[repeat(12,minmax(0,100px))] gap-2">
+        <div className="grid grid-cols-[repeat(12,minmax(0,1fr))] sm:gap-3 sm:grid-rows-[repeat(12,minmax(0,100px))] md:grid-rows-[repeat(34,minmax(0,1fr))] grid-rows-[repeat(12,minmax(0,100px))] gap-2 h-screen ">
           <Navbar />
           <Title />
           <Profile />

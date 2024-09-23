@@ -1,19 +1,35 @@
-import React from "react";
+import React,{useEffect,useRef} from "react";
+import gsap from "gsap";
+
 
 const Profile = () => {
+
+    const ProfileRef = useRef(null)
+
+    useEffect(() => {
+        gsap.set(ProfileRef.current, { x:1000, opacity: 0 });
+
+        gsap.to(ProfileRef.current,{
+            x:0,
+            opacity:1,
+            delay:2,
+            duration:1,
+            ease: "power2.out",
+        });
+    }, []);
 
     const Skill = import.meta.env.VITE_SKILL_GIF_PATH;
     const Resume = import.meta.env.VITE_RESUME_PATH;
 
     return (
         <>
-            <div className="bg-PCBG md:col-span-3 rounded-xl sm:ml-0  flex sm:col-span-5 md:mr-0 sm:mr-3 col-span-12 sm:row-span-5 md:row-span-8 mx-3 row-span-4">
+            <div ref={ProfileRef} className="bg-PCBG md:col-span-3 rounded-xl sm:ml-0  flex sm:col-span-5 md:mr-0 sm:mr-3 col-span-12 sm:row-span-5 md:row-span-19 mx-3 row-span-4">
 
                 <div className="flex justify-between w-full">
                     <div className=" w-full">
                         <div className="text-4xl font-medium mt-4 ml-5 mb-3">Skills</div>
                         <div className="ml-12">
-                            <ul className="text-lg font-medium list-disc">
+                            <ul className="text-responsive-increase font-medium list-disc">
                                 <li>MERN</li>
                                 <li>HTML/CSS</li>
                                 <li>JavaScript</li>

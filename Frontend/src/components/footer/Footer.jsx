@@ -1,9 +1,27 @@
-import React from "react";
+import React,{useRef,useEffect} from "react";
+import gsap from "gsap";
+
 
 const Footer = () => {
+
+    const FooterRef = useRef(null)
+
+    useEffect(() => {
+        gsap.set(FooterRef.current, { x:1000, opacity: 0 });
+
+        gsap.to(FooterRef.current,{
+            x:0,
+            opacity:1,
+            delay:3.2,
+            duration:1,
+            ease: "power2.out",
+        });
+    }, []);
+
+
     return (
         <>
-            <div className="bg-PCBG row-span-8 col-span-3 mr-3 mb-2 md:mb-0 rounded-xl items-center flex">
+            <div ref={FooterRef} className="bg-PCBG row-span-4  col-span-3 mr-3 mb-2 md:mb-2 rounded-xl items-center flex">
                 <div className="flex justify-around w-full">
                     <a href="https://www.instagram.com/manan__batra/" target="_blank">
                         <div>
